@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+img{
+    border: 0;
+    vertical-align: top;
+}
+i,em,address{
+    font-style: normal;
+}
+/* 전체 1200px */
+.wrap{
+    width: 1200px;   
+     /*가운데는 auto세팅  */
+     margin: 0 auto;
+     background-color: #ccc;
+}
+/* 헤더는 넓이는 보여주되, %으로 표현 */
+header{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+header h1{
+    color: green;
+    font-weight: bolder;
+    padding-top: 30px;
+}
+/* 헤더를 기준으로 bg내려오기 */
+header nav{
+    width: 700px;
+    padding-top: 50px;
+    padding-right: 20px;
+
+}
+header nav .nav_bg{
+    width: 100%;
+    /* li 40*3=120 */
+    height: 120px;
+    /* 이렇게 색을 넣으면 메뉴가 아래쪽으로 내려감 */
+    /* 헤더를 기준으로 세팅 */
+    /* 여기에는 포지션 엡솔루트로 세팅 */
+    background-color: #3cb149;
+    position: absolute;
+    left: 0;
+    top:100px;
+    /* 이렇게 되면 글자가 안보여서 글자역시 포지션 세팅 */
+}
+
+header nav ul.gnb{
+    width: 100%;
+    text-align: center;
+    display: flex;
+}
+header nav ul.gnb>li{
+    width: 25%;
+    position: relative;
+    /* 여기에 글자 기준점 잡기(내려오는 li) */
+}
+/* gnb li을 기준으로 아래 서브메뉴 내려오기*/
+header nav ul.gnb>li>a{
+    display: block;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #434748;
+    /* 보더를 겹치게 만들어 준다 */
+    box-sizing: border-box;
+    border-left: 0;
+}
+header nav ul.gnb>li:first-child>a{
+    border-left: 1px solid #434748;
+}
+/* 메인메뉴 호버 */
+header nav ul.gnb>li:hover>a{
+    background-color: #434748;
+    color: white;
+}
+
+header nav ul.gnb>li>ul.sub{
+    width: 100%;
+    line-height: 40px;
+    /* 배경위로 글자보이게 포지션 세팅 */
+    position: absolute;
+    left: 0;
+    top:50px;
+}
+header nav ul.gnb>li>ul.sub>li{
+    height: 40px;
+}
+/* 호버 */
+header nav ul.gnb>li>ul.sub>li:hover>a{
+    background-color: #1d8844;
+    color: white;
+}
+header nav ul.gnb>li>ul.sub>li>a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+ul.slide{
+    width: 100%;
+    height: 300px;
+    background-color: blue;
+}
+.contents{
+    width: 100%;
+    height: 200px;
+    background-color:yellow;
+}
+footer{
+    width: 100%;
+    height: 100px;
+    background-color: green;
+}
