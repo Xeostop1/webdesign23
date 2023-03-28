@@ -117,9 +117,10 @@ header nav ul.gnb>li>ul.sub>li>a{
 ul.slide{
     width: 100%;
     height: 300px;
-    background-color: blue;
     position: relative;
     z-index: 1;
+    /* 그림이 넘칠 수 도 있으니까 overflow 히든*/
+    overflow: hidden;
 }
 ul.slide li{
     width: 100%;
@@ -135,17 +136,59 @@ ul.slide li:nth-child(1) img{
 ul.slide li:nth-child(2) img{
     width: 100%;
     height: 300px;
+    /* 좌우 움직임 때문에 위치변경 */
+    left: -1200px;
 }
 ul.slide li:nth-child(3) img{
     width: 100%;
     height: 300px;
+    left: -1200px;
 }
-
+/* ===가운데 컨텐츠영역===== */
 .contents{
     width: 100%;
     height: 200px;
     background-color:yellow;
+    display: flex;
+    justify-content: left;
 }
+.contents section{
+    
+}
+.contents section h2{
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #3cb149;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: normal;
+}
+.cover{
+    height: 200px;
+    width: 400px;
+    object-fit: cover;
+    
+}
+.contents section h2.not_title{
+    /* width: 100%;
+    height: 100%; */
+    
+}
+.contents .notice{
+    width: 450px;
+    height: 200px;
+}
+.contents .gal{
+    width: 350px;
+}
+.contents .gal img{
+    width: 140px;
+    border: 1px solid red;
+}
+.contents .sub_banner
 footer{
     width: 100%;
     height: 100px;
