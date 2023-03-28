@@ -16,13 +16,14 @@ img{
 i,em,address{
     font-style: normal;
 }
-/* 전체 1200px */
+/*===== 전체 1200px===== */
 .wrap{
     width: 1200px;   
      /*가운데는 auto세팅  */
      margin: 0 auto;
      background-color: #ccc;
 }
+/* ====헤더===== */
 /* 헤더는 넓이는 보여주되, %으로 표현 */
 header{
     width: 100%;
@@ -30,6 +31,7 @@ header{
     display: flex;
     justify-content: space-between;
     position: relative;
+    z-index: 2;
 }
 header h1{
     color: green;
@@ -55,6 +57,8 @@ header nav .nav_bg{
     left: 0;
     top:100px;
     /* 이렇게 되면 글자가 안보여서 글자역시 포지션 세팅 */
+    /* js로 세팅 */
+    display: none;
 }
 
 header nav ul.gnb{
@@ -86,7 +90,7 @@ header nav ul.gnb>li:hover>a{
     background-color: #434748;
     color: white;
 }
-
+/* js세팅 마우스 오버 */
 header nav ul.gnb>li>ul.sub{
     width: 100%;
     line-height: 40px;
@@ -94,6 +98,7 @@ header nav ul.gnb>li>ul.sub{
     position: absolute;
     left: 0;
     top:50px;
+    display: none;
 }
 header nav ul.gnb>li>ul.sub>li{
     height: 40px;
@@ -108,12 +113,34 @@ header nav ul.gnb>li>ul.sub>li>a{
     width: 100%;
     height: 100%;
 }
-
+/* ====슬라이드==== */
 ul.slide{
     width: 100%;
     height: 300px;
     background-color: blue;
+    position: relative;
+    z-index: 1;
 }
+ul.slide li{
+    width: 100%;
+    /* 슬라이드 고정자리에 이미지 3개다 묶어놓기 */
+    position: absolute;
+    left: 0;
+    top:0;
+}
+ul.slide li:nth-child(1) img{
+    width: 100%;
+    height: 300px;
+}
+ul.slide li:nth-child(2) img{
+    width: 100%;
+    height: 300px;
+}
+ul.slide li:nth-child(3) img{
+    width: 100%;
+    height: 300px;
+}
+
 .contents{
     width: 100%;
     height: 200px;
