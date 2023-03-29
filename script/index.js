@@ -23,4 +23,21 @@ $(document).ready(()=>{
         $("ul.slide li").eq(slidenum).animate({left:"0"}, 500);
     },3000);
 
+    //=====패밀리사이트====
+    $("footer .family p").click(()=>{
+        $(this).toggleClass("on");
+        console.log(`check`,1)
+        $("footer .family ul").stop().slideToggle();
+    });
+    // ====모달======
+    // $(".contents .notice ul li").eq(0).click()
+    $(".contents .notice ul li:nth-child(1) ").click(()=>{
+        //서서히 나타나기
+        $(".modal").fadeIn();
+    });
+    $(".modal .modal_inner .btn").click(()=>{
+        $(".modal").fadeOut();
+    });
+    
+
 });//ready
