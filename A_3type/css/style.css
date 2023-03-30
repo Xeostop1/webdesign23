@@ -1,0 +1,134 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: #333;
+}
+ul, li{
+list-style: none;
+}
+.wrap{
+    width: 1200px;
+    margin: 0 auto;
+}
+/* ====헤더===== */
+header{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+/* 로고 */
+header .logo{
+    height: 100px;
+    width: 200px;
+    border: 1px solid black;
+    padding-top: 25px;
+    
+}
+/* 메인메뉴 */
+header .gab{
+    width: 800px;
+    display: flex;
+    justify-content: right;
+    text-align: center;
+    
+}
+header .gab>ul {
+    display: flex;
+}
+
+/* li에 기준점 잡고하기 */
+header nav .gab>ul>li{
+    width: 150px;
+    position: relative;  
+
+}
+header nav .gab>ul>li:hover >.sub {
+    border: 1px solid #333;
+}
+header .gab>ul>li>a{
+    display: block;
+    width: 152px;
+    /* height: 50px; */
+    line-height: 50px;
+    
+}
+/* 메인메뉴 호버 */
+header .gab>ul>li:hover>a{
+    background-color: #333;
+    color: #fff;
+}
+/* 서브메뉴 */
+header .sub{
+    width: 100%;
+    height: 130px;
+    text-align: center;
+    position: absolute;
+    left: 0px;
+    top: 50PX;  
+}
+
+header .sub>li{
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+    
+}
+/* 서브메뉴 호버 */
+header .sub>li a:hover{
+    background-color: #333;
+    color: #fff;
+}
+header .sub>li:hover header .sub{
+}
+.sub li a{
+    display: block; 
+    line-height: 40px;
+    height: 40px;
+ 
+}
+
+
+/* ====슬라이더===== */
+.slide{
+    background-color: yellow;
+}
+.slide a img{}
+
+/* ===콘텐츠==== */
+.contents{
+    background-color: blue;
+}
+/* ===공지사항=== */
+.contents .notice{}
+.contents .notice h2{}
+.contents .notice p{}
+.contents .notice p a{}
+
+/* ===갤러리=== */
+.contents .gal h2{}
+.contents .gal ul{}
+.contents .gal ul li{}
+.contents .gal ul li a{}
+.contents .gal ul li a img{}
+
+/* ====배너=====*/
+.contents .banner a{}
+.contents .banner a img{}
+
+/*=====푸터===== */
+footer{
+    background-color: green;
+}
+/* ====푸터로고==== */
+footer .logo{}
+footer .logo img{}
+
+/* =====카피라이트==== */
+footer .copy p{}
+
+/* =====푸터하단메뉴==== */
+footer .footmenu p{}
