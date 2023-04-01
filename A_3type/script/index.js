@@ -7,14 +7,16 @@ $(document).ready(()=>{
     nav.mouseleave(()=>{
         $("header .sub").stop().slideUp();
     });
-    //===IMGslide=====
+    //===IMGslide===== 페이드인 페이드 아웃 사용 
     // li에 걸고 슬라이드하기 
     const slideImg=$(".slide li");
+    slideImg.eq().siblings().hide();
     let num=0;
     setInterval(()=>{
         num<2?num++:num=0;
-        slideImg.eq(num).siblings().animate({left:"-1200px"},500);
-        slideImg.eq(num).animate({left:"0"},500);
+        slideImg.eq(num).siblings().fadeOut();
+        slideImg.eq(num).fadeIn();
+        
     },3000);
 
     
