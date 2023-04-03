@@ -1,0 +1,254 @@
+안되는 부분 
+1. 콘텐트
+→ div.contents 로 사용 그안에서 세션으로 나눔 
+
+2.포지션 릴레이티브 주는곳
+gab li에 릴레이티브 설정 
+gab li a에 인라인 블럭설정 
+
+3. 마우스오버 sub div에 엡솔루트
+top:50px
+
+3.호버위치
+gnb의 li에 주기
+
+4.호버시 다른 액션 하고 싶다면 
+ >.sub 을 사용하자
+
+
+2.메뉴 내리는 곳
+
+//제이쿼리는 자동완성이 안되니까 꼭! 단어를 외어갈 수 있도록 
+3. 메뉴바 
+마우스가 들어왔을때 :mouseenter()
+멈추고 :stop()
+슬라이드 다운: slideDown()
+
+마우스가 나갔을때 mouseleave()
+stop().slideUp()
+
+4.슬라이드
+슬라이드 태그는 ul에 relative 걸기
+li:nth-child()로 한개씩 모두 설정 
+(넓이, 높이 위치값 왼쪽세팅이면 left, top right)
+js qnqns 
+변수 0세팅
+셋인터벌 함수사용: setInterval()
+넘이 2보다 작으면 ++ 크면 0으로 초기화 
+num<2? num++:num=0
+
+//슬라이드 애니메이션
+js에 있는 셋인터벌함수 사용하고 0.3초로 세팅 
+eq():선택한 요소의 인덱스 번호를 찾음
+siblings(): 자신을 제외한 형제요소를 찾는 함수
+//처음에는 요소를 찾고 움직임을 준다음에 
+$(".slide li").eq(num).siblings().animate({left:"-1200px"},500);
+//다시 원위치로 돌려놓는다 
+$(".slide li").animate({left:"0"},500);
+
+
+
+틀린부분
+1.전체 가운테 세팅!
+메뉴 만들때 큰 메뉴 li 안에 ul sub가 들어있어야함!!!
+2.제이쿼리가 위에 있어야함
+
+
+
+
+=====================
+color:inherit 
+//부모의 색을 받는다
+
+img{
+//익스플로러에서 보더가 생기는 현상을 막는다
+border:0
+//페이지가 띄면 제일 상단에 정렬
+vertical-align:top:
+}
+boby{
+//글자색 넣기
+color:#333
+}
+
+=========세로형=========
+헤더가 왼쪽
+right컨테이너 왼쪽정렬
+right컨테이너에 슬라이드, 공지사항, 갤러리 배너, 푸터까지
+
+옆으로 같이 붙일 수 있게 flex left로 정렬
+헤더 {
+넓이:200px
+높이:전체 높이를 더해서 씀
+}
+right컨테이너{
+width:800px
+height:650px
+}
+
+right컨테이너 슬라이드{
+넓이:100%
+height:350px}
+right컨테이너 콘텐츠{
+넓이:100%
+height:200px}
+right컨테이너 푸터{
+넓이:100%
+height:100px
+}
+
+헤더는 플렉스 할 필요가 없음
+1.포지션이 필요없는 경우
+2.오른쪽으로 붙는 포지션이 필요한 경우
+
+
+
+//=======네비게이션======
+가로형 메뉴바
+헤더에 무조건 릴레이티브 잡기 
+****메뉴바 내려오는 기준 큰메뉴(gnb)의 li 릴레이티브 잡기
+****ul 서브에 앱솔르트 잡기
+****left, top:50px; 잡기
+z-index:10;
+호버했을시 sub메뉴의 전체 bg을 보고싶으면 
+.sub에 높이 세팅
+슬라이드에 릴레이티브 넣고
+
+//가로형 메뉴바 제이쿼리
+//호버시 함수2개 사용
+
+//=====내 큰메뉴만 내려오는 제이쿼리======:중요한것! 나만 내려와야 하니까 this 사용! 
+큰메뉴 li.hover(()=>{
+	$(this).find("ul.sub).stop().slideDown();
+},()=>{
+	$(this).find("ul.sub).stop().slideUp();
+})
+
+//=====전체 메뉴가 내려오는 제이쿼리======:중요한것! 전체가 내려와야 하니까 ul.sub가 전체로 슬라이드 다운
+	$("ul.sub").find("ul.sub).stop().slideDown();
+},()=>{
+	$("ul.sub").find("ul.sub).stop().slideUp();
+})
+
+
+//======배경색과 같이 내려오는 제이쿼리==========:중요포인트!: ul.sub,.bg 클래스를 두개 잡아서 사용
+큰메뉴 li.hover(()=>{
+	$("ul.sub, .nav_bg")stop().slideDown();
+	
+},()=>{
+	$("ul.sub, .nav_bg").stop().slideUp();
+})
+
+//====세로아래형 제이쿼리======:중요포인트!:내가 선택한 메뉴만 내려와야 한다→ 그러면 this 사용!!
+$(document).ready(()=>{
+	$("ul.gnb>li").hover(()=>{
+		$(this).find("ul.sub").stop().slideDown();
+	},()=>{
+		$(this).find("ul.sub").stop().slideUp();
+	})
+});
+
+//======세로오른쪽형 제이쿼리==========중요포인트!:위의 제이쿼리로 사용가능하고 대신 css만 변경가능 show, hide 함수 사용
+$(document).ready(()=>{
+	$("ul.gnb>li").hover(()=>{
+		$(this).find("ul.sub").stop().show();
+	},()=>{
+		$(this).find("ul.sub").stop().hide();
+	});
+});
+
+
+
+//====슬라이드 총 3가지 유형(위아래/ 좌우 / 페이드인,아웃)========3초에 한번씩, 자동으로 제이쿼리만 수정함
+ul로 만듬! 그리고 a 안에 그림 넣어주기 그리고 alt에 배너 제공텍스트를 넣는것!
+//===css=====
+css: 포지션을 잡아서 겹치게 만들어줌 
+****div 슬라이드에 포지션 릴레이티브을 기준→
+slide li에 앱솔루트설정{
+width 100
+height 300
+postion: absolute;
+left 0
+top 0;}
+****전체 div 슬라이더에 오버플로어 히든 걸기*****
+
+//====제이쿼리======
+여기도 슬라이더 li에를 선택 후 세팅 
+eq(): 인덱스번호
+siblings:형제의/시블링스
+
+//=====1. 좌우=======
+$(document).ready(()={
+//0번의 형제들은 css 메서드로 -1200(좌vs1200은 우)로 위치 시킨다
+	$("ul.slider li").eq(0).siblings().css({left:"-1200px"});
+	
+	let num=0; //eq()을 반복시켜주는것 
+	setInterval(()=>{
+		num<2?num++:num=0;
+		//형제 보내기
+		$("ul.slider li").eq(num).siblings().animate({left:"-1200px"},500);
+		//나는 가운데로 
+		$("ul.slider li").eq(num).animate({left:"0"},500);
+	},3000);
+});
+
+//====2. 상하====css+animate
+$("ul.slider li").eq(0).siblings().css({top:"-300px"})//이상태가 안보이는 상태
+let num=0;
+setInterval(()={
+	num<2?num++:num=0;
+	$("ul.slider li").eq(num).siblings().animate({top:"-300"},300);
+	$("ul.slider li").eq(num).animate({top:"0"},300);
+},3000);
+
+
+//====2.페이드인,아웃 ====:hide+fadeout 안보이고→안보이고→보이고(함수사용)
+$("ul.slider li").eq().siblings().hide();
+let num=0;
+setInterval(()=>{
+	num<2?num++:num=0;
+	$("ul.slider li").eq(num).siblings().fadeOut(300);
+	$("ul.slider li").eq(num).fadeIn(300);
+},3000)
+
+
+
+//=====콘텐츠 영역========(탭 구성: 제이쿼리, 별도:css)
+
+//====1. 탭메뉴======
+h2 사용하는데 모두 a링크 안에 넣기 
+<h2><a href="#">공지사항<a/></h2>
+<ul class="notice">
+	<li><a href="#">공지사항입니다<span class=day>2023-03-31</span></a></li>
+</ul>
+
+갤러리도 똑같이 h2→ul→li→a→img 
+이미지에 alt값이 없으면 그냥 쓰지 않기
+
+공지사항, 갤러리, 배너는 width %으로 하기 그래야 분할할때 편함
+
+h2 탭역할을 하고 h2랑 ul에 class on을 붙여줌 
+
+h2는 탭역할 처럼 보이게 넓이랑 높이 배경색등을 세팅해줌
+큰 컨테이너1에 포지션:릴레이티브 세팅하고 h2, ul에 포지션 값을 세팅함 
+h2는 left값 다르게
+h2 두개는 클래스 on으로 css 세팅{
+	배경색,다르게 
+}
+ul은 서로 겹치게
+gal은 기본 display:none으로 세팅
+
+html에서 js는 공지사항에 h2 on 걸고 시작
+
+//탭메뉴 활성화
+$(".con1 h2").click(()=>{
+	//모든 h2의 on 지우기
+	$(".con1 h2").removeClass("on");
+	//클릭된 나는 클래스 add를 해준다
+	$(this).addClass("on");
+	//ul중에 on 되어 있는거 모두 지우고 시작 
+	$(".con1 ul").removeClass("on")l;
+	//다음에 있는 태그 ul에 해줄 행동 세팅
+	$(this).next("ul").addClass("on")
+
+});
