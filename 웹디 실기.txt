@@ -252,3 +252,83 @@ $(".con1 h2").click(()=>{
 	$(this).next("ul").addClass("on")
 
 });
+
+
+//=====모달창======
+html
+.modal
+.modal_inner
+p.tit 공지사항 1번째 내용을 복사
+ul.txt로 내용 넣기
+li*4  공지사항 다 넣기 
+button .btn으로 X로 만들기 
+
+모달창은 무조건 포지션 픽스드→ 제트인덱스를 큰숫자를 지정해서 겹쳐지는것 처럼 보이기
+
+css 
+//모달의 기본세팅값은 display:none 상태
+.modal{
+	postion:fixed;
+	//브라우저 넓이 그대로사용
+	width:100%
+	height:100%
+	//여기서 백그라운드를 줌
+	background:rgba(0,0,0.0.7);
+	z-index:20;
+	display:none;
+	}
+.modal .modal_inner{
+	//임의로 세팅가능
+	width:500px;
+	height:500px;
+	background:#fff;
+	///******가운데 정렬하는법******중요!
+	postion:absolute;
+	top:200px;
+	left:50%;
+	//늘어나더라도 x축에 기준으로 같이 비율을 맞출수 있음
+	transfrom:traslateX(-50%);
+	text-align:center;
+	//****패팅주기건데 꼭! 박스 사이징 먼저 세팅하고 하자****
+	box-sizing:border-box;
+	padding:20px;
+	
+}
+.modal .modal_inner p.tit{	
+	font-size:25px;
+	마진바텀:20px;
+}
+.modal .modal_inner ul.txt{}
+.modal .modal_inner ul.txt li{}
+.modal .modal_inner .btn{
+	//하단에 위치
+	width:50px;
+	height:50px;
+	border-radius:10px;
+	font-size:30px;
+	color:#fff;
+	border:0;
+	background:#333;
+	//여기도 포지션 앱솔루트로 픽스해줌
+	postion:absolute;
+	right:20px;
+	bottom:20px;
+	cuser:pointer;
+}
+
+//====js======
+//=====모달=====
+//eq()는 nth-child와 같은 의미
+$("ul .notice li").eq(0).click(()=>{
+	$(".modal").show();
+	//또는 .fadeIn(); 사용도 가능함
+});
+$(".btn").click(()=>{
+	$(".modal").hide();
+	//또는 .fadeOut(); 사용도 가능함
+});
+
+//====푸터======
+01 로고+메뉴/카피라이트 
+푸터 안에 div로 3영역 만들기 
+logo, menu, cop
