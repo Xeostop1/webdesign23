@@ -17,39 +17,46 @@ ul,li{
 }
 /* ====헤더==== */
 header{
-    display: flex;
-    border: 1px solid black;
+    /* display: flex; */
 }
 /* 헤더로고 */
 header .h_logo{
     /* width: 200px; */
-    height: 50px;
-    padding-top: 10px;
+    height: 100px;
     box-sizing: border-box;
     margin: 0;
     display: inline;
-    line-height: 50px;
+    line-height: 100px;
+    display: inline-block;
+    padding-left: 50px;
 }
-header .h_logo a{}
+header .h_logo a{
+    height: 100px;
+    
+}
 header .h_logo a h2{
     width: 200px;
+    height: 100px;
+    line-height: 100px;
+}
+/*가운데 컨테이너  */
+.container{
+    margin: 0 auto;
+    width: 1100px;
+    background-color: #888;
+
 }
 /* 나브 */
 nav{
-    width: 1200px;
+    width: 1100px;
     display: flex;
     justify-content: center;
-    margin-top: 50px;
 }
 /* 메뉴 배경색 */
 header .bg_nav{
-    background-color: #888;
-    height: 200px;
-    width: 628px;
-    z-index: 2;
-    margin-top: 30px;
+    width: 1100px;
+   
 }
-
 /* 큰메뉴 */
 nav .gab{
     display: flex;
@@ -57,7 +64,7 @@ nav .gab{
     width: 100%;
     color: #fff;
     margin-right: 20px;
-    
+    margin-top: -60px;
 }
 nav .gab>li {
     background-color: #888;
@@ -78,6 +85,7 @@ nav .gab li a {
 /* 서브메뉴 */
 nav .gab li ul.sub {
     display: none;
+    cursor: pointer;
 }
 nav .gab li ul.sub li{}
 nav .gab li ul.sub li:hover{
@@ -88,15 +96,26 @@ nav .gab li ul.sub li a {}
 
 /* ====슬라이더===== */
 .slide{
-    width: 1000px;
-    height: 300px;
+    width: 100%;
     position: relative;
 }
-.slide ul.slider{}
-.slide ul.slider li {}
-.slide ul.slider li a {}
-.slide ul.slider li a img {
+.slide ul.slider{
     width: 100%;
+    position: relative;
+}
+.slide ul.slider li {
+    
+    position:absolute;
+    height: 300px;
+}
+.slide ul.slider li:nth-child(1){}
+.slide ul.slider li:nth-child(2){}
+.slide ul.slider li:nth-child(3){}
+.slide ul.slider li a {
+}
+.slide ul.slider li>a>img {
+    width: 100%;
+    
 }
 
 /* ===콘텐츠==== */
