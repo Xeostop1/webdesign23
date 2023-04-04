@@ -16,7 +16,6 @@ $(document).ready(()=>{
         num<2?num++:num=0;
         slideImg.eq(num).siblings().fadeOut();
         slideImg.eq(num).fadeIn();
-        
     },3000);
 
     
